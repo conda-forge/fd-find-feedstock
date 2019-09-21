@@ -7,4 +7,4 @@ cargo build   --release
 cargo install --root "$PREFIX" --path .
 
 # strip debug symbols
-strip "$PREFIX/bin/fd"
+"$STRIP" "$PREFIX/bin/fd"
