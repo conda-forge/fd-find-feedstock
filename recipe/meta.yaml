@@ -10,7 +10,7 @@ source:
   sha256: 33570ba65e7f8b438746cb92bb9bc4a6030b482a0d50db37c830c4e315877537
 
 build:
-  number: 0
+  number: 1
 
 requirements:
   build:
@@ -25,6 +25,7 @@ test:
 about:
   home: https://github.com/sharkdp/fd
   license: MIT
+  license_family: MIT
   summary: A simple, fast and user-friendly alternative to 'find'
   license_file: LICENSE-MIT
 
