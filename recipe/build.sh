@@ -3,8 +3,7 @@
 set -o xtrace -o nounset -o pipefail -o errexit
 
 # build statically linked binary with Rust
-cargo build   --release
-cargo install --root "$PREFIX" --path .
+cargo install --locked --root "$PREFIX" --path .
 
 # strip debug symbols
 "$STRIP" "$PREFIX/bin/fd"
