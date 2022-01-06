@@ -1,4 +1,4 @@
-{% set version = "8.3.0" %}
+{% set version = "8.3.1" %}
 {% set native = 'm2w64-' if win else '' %}
 
 package:
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/sharkdp/fd/archive/v{{ version }}.tar.gz
-  sha256: 3c5a8a03c4f6ade73b92432ed0ba51591db19b0d136073fa3ccfa99d63403d52
+  sha256: 834a90fbb4e1deee2ca7f3aa84575c9187869d8af00f72e431ecab4776ae1f62
 
 build:
   number: 0
