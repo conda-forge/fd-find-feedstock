@@ -1,0 +1,38 @@
+From 6d333ffa764cbe0ab0445d93528b6f00f6e48f30 Mon Sep 17 00:00:00 2001
+From: Daniel Bast <2790401+dbast@users.noreply.github.com>
+Date: Sun, 30 Jan 2022 16:08:20 +0100
+Subject: [PATCH] Disable jemalloc on linux
+
+---
+ Cargo.toml  | 2 +-
+ src/main.rs | 1 +
+ 2 files changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/Cargo.toml b/Cargo.toml
+index 81526e7..e459d84 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -65,7 +65,7 @@ libc = "0.2"
+ # FIXME: Re-enable jemalloc on macOS
+ # jemalloc is currently disabled on macOS due to a bug in jemalloc in combination with macOS
+ # Catalina. See https://github.com/sharkdp/fd/issues/498 for details.
+-[target.'cfg(all(not(windows), not(target_os = "android"), not(target_os = "macos"), not(target_os = "freebsd"), not(target_env = "musl"), not(target_arch = "riscv64")))'.dependencies]
++[target.'cfg(all(not(windows), not(target_os = "android"), not(target_os = "macos"), not(target_os = "freebsd"), not(target_env = "musl"), not(target_arch = "riscv64"), not(target_os = "linux")))'.dependencies]
+ jemallocator = {version = "0.3.0", optional = true}
+ 
+ [dev-dependencies]
+diff --git a/src/main.rs b/src/main.rs
+index 2eccd06..4d12976 100644
+--- a/src/main.rs
++++ b/src/main.rs
+@@ -41,6 +41,7 @@ use crate::regex_helper::{pattern_has_uppercase_char, pattern_matches_strings_wi
+     not(target_os = "freebsd"),
+     not(target_env = "musl"),
+     not(target_arch = "riscv64"),
++    not(target_os = "linux"),
+     feature = "use-jemalloc"
+ ))]
+ #[global_allocator]
+-- 
+2.33.1
+
