@@ -1,4 +1,4 @@
-{% set version = "8.5.2" %}
+{% set version = "8.5.3" %}
 {% set native = 'm2w64-' if win else '' %}
 
 package:
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/sharkdp/fd/archive/v{{ version }}.tar.gz
-  sha256: bc66842481d2121f58e7b178b449b5d387078fabcf712355e8db10f9a7af2cd7
+  sha256: 8770077eb70b3989c1990d56a1019cbbea27421cf571b9ef7e330f989cd56421
   patches:
     - 0001-Disable-jemalloc-on-linux.patch
 
