@@ -8,6 +8,8 @@ package:
 source:
   url: https://github.com/sharkdp/fd/archive/v{{ version }}.tar.gz
   sha256: a8e95bf363dc70896f5404bf7b0ab10f7d5e98a13485369e0dfd6579bf461a05
+  patches:
+    - 0001-Disable-jemalloc-on-linux.patch
 
 build:
   number: 0
