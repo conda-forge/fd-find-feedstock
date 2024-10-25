@@ -1,5 +1,4 @@
 {% set version = "10.2.0" %}
-{% set native = 'm2w64-' if win else '' %}
 
 package:
   name: fd-find
@@ -12,14 +11,14 @@ source:
     - 0001-Disable-jemalloc-on-linux.patch
 
 build:
-  number: 0
+  number: 1
 
 requirements:
   build:
+    - {{ compiler('c') }}
     - {{ compiler('rust') }}
-    - {{ compiler('c') }}   # [unix]
-    - {{ stdlib("c") }}     # [unix]
-    - {{ native }}binutils    # [win]
+    - {{ stdlib("c") }}
+    - cargo-bundle-licenses
 
 test:
   commands:
@@ -30,7 +29,9 @@ about:
   license: MIT
   license_family: MIT
   summary: A simple, fast and user-friendly alternative to 'find'
-  license_file: LICENSE-MIT
+  license_file:
+    - LICENSE-MIT
+    - THIRDPARTY.yml
 
 extra:
   recipe-maintainers:
