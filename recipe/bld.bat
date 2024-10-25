@@ -1,11 +1,20 @@
+@echo on
+
+set CARGO_PROFILE_RELEASE_STRIP=symbols
+set CARGO_PROFILE_RELEASE_LTO=fat
+
 :: build
-cargo install --locked --root "%PREFIX%" --path . || goto :error
+cargo install --locked ^
+    --root "%PREFIX%" ^
+    --path . ^
+    --no-track ^
+    || goto :error
 
-:: strip debug symbols
-strip "%PREFIX%\bin\fd.exe" || goto :error
-
-:: remove extra build file
-del /F /Q "%PREFIX%\.crates.toml"
+:: dump licenses
+cargo-bundle-licenses ^
+    --format yaml ^
+    --output "%SRC_DIR%\THIRDPARTY.yml" ^
+    || goto :error
 
 goto :EOF
 
