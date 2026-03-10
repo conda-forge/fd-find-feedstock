@@ -1,4 +1,4 @@
-{% set version = "10.3.0" %}
+{% set version = "10.4.2" %}
 
 package:
   name: fd-find
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://github.com/sharkdp/fd/archive/v{{ version }}.tar.gz
-  sha256: 2edbc917a533053855d5b635dff368d65756ce6f82ddefd57b6c202622d791e9
+  sha256: 3a7e027af8c8e91c196ac259c703d78cd55c364706ddafbc66d02c326e57a456
   patches:
     - 0001-Disable-jemalloc-on-linux.patch
 
