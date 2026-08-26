@@ -9,6 +9,8 @@ Package license: MIT
 
 Summary: A simple, fast and user-friendly alternative to 'find'
 
+Development: https://github.com/sharkdp/fd
+
 Current build status
 ====================
 
