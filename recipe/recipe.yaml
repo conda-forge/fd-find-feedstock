@@ -1,0 +1,43 @@
+context:
+  version: 10.5.0
+
+package:
+  name: fd-find
+  version: ${{ version }}
+
+source:
+  url: https://github.com/sharkdp/fd/archive/v${{ version }}.tar.gz
+  sha256: e6d9e90730bf316101691e49d59cc02565278dc3779d33a77423801569484851
+
+build:
+  number: 0
+  script: build
+
+requirements:
+  build:
+    - ${{ compiler('c') }}
+    - ${{ compiler('rust') }}
+    - ${{ stdlib('c') }}
+    - cargo-bundle-licenses
+
+tests:
+  - package_contents:
+      bin:
+        - fd
+  - script:
+      - fd --help
+
+about:
+  homepage: https://github.com/sharkdp/fd
+  repository: https://github.com/sharkdp/fd
+  license: MIT
+  license_family: MIT
+  summary: A simple, fast and user-friendly alternative to 'find'
+  license_file:
+    - LICENSE-MIT
+    - THIRDPARTY.yml
+
+extra:
+  recipe-maintainers:
+    - hmaarrfk
+    - dbast
